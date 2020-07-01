@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pelicula.title %></title>
+    <title><%= Movies.title %></title>
 </head>
 <body>
     <article>
         <section>
-            <h2><%= pelicula.title %></h2>
+            <h2><%= Movies.title %></h2>
             <p>
-               Premios ganados: <%= pelicula.awards %> 
+               Premios ganados: <%= Movies.awards %> 
             </p>
             <p>
                Duracion de la pelicula: 
-               <% if (pelicula.length == null ) { %>
+               <% if (Movies.length == null ) { %>
                     Duraccion no definida
                <% } else { %>
-                    <%= pelicula.length %> 
+                    <%= Movies.length %> 
                <% } %> 
             </p>
             <p>
-                Fecha de lanzamiento: <%= pelicula.release_date %> 
+                Fecha de lanzamiento: <%= Movies.release_date %> 
             </p>
-            <form action="/movies/delete/<%= pelicula.id %>"  method="POST">
+            <form action="/movies/delete/<%= Movies.id %>"  method="POST">
                 <button type="submit">Borrar</button>
             </form>
-            <form action="/movies/<%= pelicula.id %>" method="POST">
+            <form action="/movies/edit/<%= Movies.id %>">
                 <button type="submit">Modificar</button>
             </form>
         </section>

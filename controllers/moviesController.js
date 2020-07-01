@@ -1,5 +1,5 @@
 const db = require('../database/models');
-const Op = db.Sequelize.Op;
+
 
 let moviesController = {
     allMovies: function (req,res){
@@ -13,31 +13,13 @@ let moviesController = {
        let detailID = req.params.id;
         db.Movies.findByPk(detailID)
         .then(peliculaDetail => {
-            res.render('detailMovie', { pelicula: peliculaDetail});
+            res.render('detailMovie', { Movies : peliculaDetail});
         });
     },
    
-    search: function (req,res){
-
-        db.Movies.findAll({
-            where: {
-                title: {[Op.like]: '%'+ req.body.search +'%'}
-            }
-        }
-        )
-        .then(movies => {
-            console.log(movies);
-            if (movies != ''){
-                console.log('1');
-                res.render('peliculas', {peliculas: movies,
-                    title: 'Todas las peliculas'});
-            }
-            return res.render('peliculas', {errors:{ msg:'No se encuentra la pelicula' },
-             title: 'Todas las peliculas'});
-        })
-    },
+    
     add: function(req, res) {
-        res.render("crearPelicula");
+        res.render("createPelicula");
     },
     create: function(req, res) {
         db.Movies.create({
@@ -53,7 +35,7 @@ let moviesController = {
     edit: function(req,res){
         db.Movies.findByPk(req.params.id)
             .then(function(Movies) {
-                res.render("editarPelicula",
+                res.render("editMovie",
                 {Movies:Movies});
             })
 

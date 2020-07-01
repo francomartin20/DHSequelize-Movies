@@ -5,7 +5,7 @@ var moviesController = require('../controllers/moviesController')
 /* routes Movies. */
 router.get('/', moviesController.allMovies);
 router.get('/detail/:id', moviesController.detailsMovies);
-router.post('/search', moviesController.search);
+
 
 router.get('/add', moviesController.add);
 router.post('/add', moviesController.create);

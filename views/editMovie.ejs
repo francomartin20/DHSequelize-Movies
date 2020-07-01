@@ -34,7 +34,9 @@
             <input type="text" name="awards" value="<%=Movies.awards%>">
         </div>
     
-        <button type="submit">Submit</button>
+        <form action="/movies/edit/<%= Movies.id %>" method="POST">
+            <button type="submit">Modificar</button>
+        </form>
     </form>
 </body>
 </html>
